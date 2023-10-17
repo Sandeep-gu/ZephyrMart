@@ -12,7 +12,7 @@ var gateway = new braintree.BraintreeGateway({
   environment: braintree.Environment.Sandbox,
   merchantId: process.env.MerchantID,
   publicKey: process.env.PublicKey,
-  privateKey: process.env.privateKey
+  privateKey: process.env.PrivateKey
 });
 //Upload all data in the database
 const createProductController = async (req, res) => {
