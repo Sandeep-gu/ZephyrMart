@@ -32,7 +32,7 @@ function HomePage() {
   const getAllProduct = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/auth/get-product"
+        `${process.env.REACT_APP_API}/api/v1/auth/get-product`
       );
       if (data.success) {
         setProduct(data.products);
@@ -47,7 +47,7 @@ function HomePage() {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/auth/all-category"
+        `${process.env.REACT_APP_API}/api/v1/auth/all-category`
       );
       if (data.success) {
         setCategory(data.category);
@@ -61,7 +61,7 @@ function HomePage() {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/auth/filter-product",
+        `${process.env.REACT_APP_API}/api/v1/auth/filter-product`,
         { checked, radio }
       );
 

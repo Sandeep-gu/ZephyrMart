@@ -7,7 +7,7 @@ const Rating = (props) => {
   const handleRatingClick = async(value) => {
     setRating(value);
     try{
-        const {data} = await axios.put('http://localhost:4000/api/v1/auth/user-rating',{rate:value,postId:props.postId});
+        const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/user-rating`,{rate:value,postId:props.postId});
         console.log(data);
     }
     catch(error){

@@ -48,7 +48,7 @@ function CartPage() {
   //payment method
   const getToken = async()=>{
     try{
-        const {data} = await axios.get('http://localhost:4000/api/v1/auth/payment-token')
+        const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/payment-token`)
         console.log(data)
         setClientToken(data?.clientToken)
     }catch(error){
@@ -62,7 +62,7 @@ function CartPage() {
         console.log("started");
         setLoading(true);
         const {nonce} = await instance.requestPaymentMethod();
-        const {data} = await axios.post("http://localhost:4000/api/v1/auth/payment",{nonce,cart})
+        const {data} = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/payment`,{nonce,cart})
         setLoading(false);
         localStorage.removeItem("cart");
         setCart([]);

@@ -24,7 +24,7 @@ function UpdateProduct() {
     //get those product we want to update
     const getSingleProduct = async()=>{
         try{
-            const {data} = await axios.get(`http://localhost:4000/api/v1/auth/get-singleproduct/${params.slug}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/get-singleproduct/${params.slug}`);
             console.log(data);
             if(data.success){
                 setId(data.product._id)
@@ -44,7 +44,7 @@ function UpdateProduct() {
     //get all categories
     const getAllCategories = async()=>{
         try{
-            const {data} = await axios.get("http://localhost:4000/api/v1/auth/all-category")
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-category`)
             if(data){
                 toast.success("Successfully fetched all categories")
                 
@@ -67,7 +67,7 @@ function UpdateProduct() {
         let formData = new FormData();
         formData.append('file',photo)
         console.log(formData)
-        const response =axios.post("http://localhost:4000/api/v1/auth/uploadFile",formData)
+        const response =axios.post(`${process.env.REACT_APP_API}/api/v1/auth/uploadFile`,formData)
         console.log(response)
         return response;
     }
@@ -79,10 +79,10 @@ function UpdateProduct() {
             const imgres = await handleImageUpload()
             let uploadphotodata = prevphoto;
             if(imgres){
-                uploadphotodata = `http://localhost:4000/api/v1/auth/files/${imgres.data.filename}`
+                uploadphotodata = `${process.env.REACT_APP_API}/api/v1/auth/files/${imgres.data.filename}`
             }
             console.log(imgres);
-            const {data} = await axios.put(`http://localhost:4000/api/v1/auth/update-product/${id}`,
+            const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/update-product/${id}`,
             {
                 "name":name,
                 "price":price,

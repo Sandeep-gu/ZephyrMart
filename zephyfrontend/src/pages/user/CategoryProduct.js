@@ -16,7 +16,7 @@ function CategoryProduct() {
     try {
       console.log(params.slug);
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/auth/category-product/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/auth/category-product/${params.slug}`
       );
       console.log(data);
       if (data.success) {

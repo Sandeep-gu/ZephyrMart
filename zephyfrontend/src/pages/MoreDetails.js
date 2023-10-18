@@ -16,7 +16,7 @@ function MoreDetails() {
     try {
       console.log(params.slug);
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/auth//get-singleproduct/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/auth/get-singleproduct/${params.slug}`
       );
       console.log("moredetail",data);
       if (data.success) {
@@ -43,7 +43,7 @@ function MoreDetails() {
     try {
       console.log(pid, cid);
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/auth/similiar-product/${pid}/${cid}`
+        `${process.env.REACT_APP_API}/api/v1/auth/similiar-product/${pid}/${cid}`
       );
       console.log(data);
       if (data.success) {

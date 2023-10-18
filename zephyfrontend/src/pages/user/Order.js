@@ -9,7 +9,7 @@ function Order() {
   const allOrderData = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/auth/orders"
+        `${process.env.REACT_APP_API}/api/v1/auth/orders`
       );
       console.log(data);
       if (data.success) {

@@ -17,7 +17,7 @@ function CreateCategory() {
     
     const getAllCategories = async()=>{
         try{
-            const category = await axios.get('http://localhost:4000/api/v1/auth/all-category')
+            const category = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-category`)
             if(category){
                 toast.success("Successfully fetched all categories")
                 
@@ -34,7 +34,7 @@ function CreateCategory() {
     const handleSubmitbtn =async(e)=>{
         e.preventDefault();
         try{
-            const response = await axios.post("http://localhost:4000/api/v1/auth/create-category",{name})
+            const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/create-category`,{name})
             if(response.data.success){
                 console.log(response.data)
                 toast.success("Category created successfully");
@@ -55,7 +55,7 @@ function CreateCategory() {
     //update data for category
     const handleUpdatedbtn = async()=>{
         try{
-            const {data} = await axios.put(`http://localhost:4000/api/v1/auth/update-category/${select}`,{name:updated})
+            const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/update-category/${select}`,{name:updated})
             if(data.success){
                 toast.success("Updated category");
                 setUpdated("");
@@ -77,7 +77,7 @@ function CreateCategory() {
     const handleOnDelete = async(pid) => {
         try{
             console.log(pid)
-            const {data} = await axios.delete(`http://localhost:4000/api/v1/auth/delete-category/${pid}`);
+            const {data} = await axios.delete(`${process.env.REACT_APP_API}/api/v1/auth/delete-category/${pid}`);
             console.log(data)
             if(data.success){
                 toast.success("Successfully deleted category")

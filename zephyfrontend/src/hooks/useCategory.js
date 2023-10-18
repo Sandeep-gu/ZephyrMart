@@ -6,7 +6,7 @@ export default function useCategory(){
 
     const findAllCategory = async()=>{
         try{
-            const {data} = await axios.get("http://localhost:4000/api/v1/auth/all-category")
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-category`)
             console.log(data)
             if(data?.success){
                 console.log(categories)

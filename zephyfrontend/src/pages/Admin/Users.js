@@ -9,7 +9,7 @@ function Users() {
     const [users,setUsers] = useState([])
     const findAllUsers = async()=>{
         try{
-            const {data} = await axios.get('http://localhost:4000/api/v1/auth/all-users')
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-users`)
             console.log(data)
             if(data.success){
                 setUsers(data.details)
@@ -27,7 +27,7 @@ function Users() {
     const handleDeleteUser = async(id)=>{
         try{
             console.log(id);
-            const {data} = await axios.delete(`http://localhost:4000/api/v1/auth/delete-user/${id}`)
+            const {data} = await axios.delete(`${process.env.REACT_APP_API}/api/v1/auth/delete-user/${id}`)
             console.log(data);
             if(data.success){
                 toast.success('User deleted successfully');

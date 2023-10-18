@@ -45,7 +45,7 @@ function Register() {
       setLoading(true);
       console.log("userdetails", userdetail);
       const res = await axios.post(
-        `http://localhost:4000/api/v1/auth/register`,
+        `${process.env.REACT_APP_API}/api/v1/auth/register`,
         {
           name: userdetail.name,
           password: userdetail.password,
@@ -54,7 +54,7 @@ function Register() {
           address: userdetail.address,
           phone: userdetail.phone,
           answer: userdetail.answer,
-          photo: `http://localhost:4000/api/v1/auth/files/${imgres.data.filename}`,
+          photo: `${process.env.REACT_APP_API}/api/v1/auth/files/${imgres.data.filename}`,
         }
       );
       if (res.data.success) {

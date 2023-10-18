@@ -12,7 +12,7 @@ function SearchBox() {
         try{
             
 
-            const {data} = await axios.get(`http://localhost:4000/api/v1/auth/search/${search.keyword}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/search/${search.keyword}`);
             console.log(data)
             setSearch({...search,results:data});
 

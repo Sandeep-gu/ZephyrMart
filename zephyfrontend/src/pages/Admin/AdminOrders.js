@@ -14,7 +14,7 @@ function AdminOrders() {
 
     const getAllOrders = async()=>{
         try{
-            const {data} = await axios.get('http://localhost:4000/api/v1/auth/all-orders');
+            const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/all-orders`);
             console.log("data",data)
             if(data.success){
                 setOrder(data.orders)
@@ -28,7 +28,7 @@ function AdminOrders() {
     const onStatusOrder = async(id,value)=>{
         try{
             console.log(id)
-            const {data} = await axios.put(`http://localhost:4000/api/v1/auth/update-status/${id}`,{status:value})
+            const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/update-status/${id}`,{status:value})
             console.log("data "+data)
             if(data.status){
                 console.log(data)

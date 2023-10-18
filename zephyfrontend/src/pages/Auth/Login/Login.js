@@ -31,7 +31,7 @@ function Login() {
     try{
       console.log(login)
       setLoading(true);
-      const res = await axios.post("http://localhost:4000/api/v1/auth/login",login)
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`,login)
       
       if(res.data.success){
         setLoading(false)

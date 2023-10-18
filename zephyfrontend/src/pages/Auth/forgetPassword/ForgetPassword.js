@@ -29,7 +29,7 @@ function ForgetPassword() {
     try{
       console.log(updatedata)
       setLoading(true);
-      const res = await axios.post("http://localhost:4000/api/v1/auth/forgetPassword",updatedata)
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgetPassword`,updatedata)
       
       if(res.data.success){
         setLoading(false);

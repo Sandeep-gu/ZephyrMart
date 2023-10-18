@@ -32,7 +32,7 @@ function Profile() {
     const handleUpdateButton=async(e)=>{
         e.preventDefault();
         try{
-            const {data} = await axios.put("http://localhost:4000/api/v1/auth/update-user",update);
+            const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/update-user`,update);
             console.log(data)
             if(data?.success){
                 

@@ -12,7 +12,7 @@ function Products() {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/auth/get-product"
+        `${process.env.REACT_APP_API}/api/v1/auth/get-product`
       );
       console.log(data);
       if (data?.success) {
@@ -33,7 +33,7 @@ function Products() {
   const handleDeletebtn = async(id)=>{
     try{
         
-        const {data} = await axios.delete(`http://localhost:4000/api/v1/auth/delete-product/${id}`);
+        const {data} = await axios.delete(`${process.env.REACT_APP_API}/api/v1/auth/delete-product/${id}`);
         if(data.success){
             toast.success("Successfully deleted product");
             getAllProducts();
