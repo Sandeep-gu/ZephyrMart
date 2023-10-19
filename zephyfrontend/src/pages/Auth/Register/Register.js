@@ -31,7 +31,7 @@ function Register() {
     formData.append("file", userdetail.photo);
     console.log(formData);
     const response = await axios.post(
-      "http://localhost:4000/api/v1/auth/uploadFile",
+      `${process.env.REACT_APP_API}/api/v1/auth/uploadFile`,
       formData
     );
     console.log("response", response);
