@@ -43,7 +43,7 @@ function CreateProduct() {
         let formData = new FormData();
         formData.append('file',photo)
         console.log(formData)
-        const response =axios.post(`${process.env.REACT_APP_API}/api/v1/auth/uploadFile`,formData)
+        const response =axios.post(`http://localhost:4000/api/v1/auth/uploadFile`,formData)
         console.log(response)
         return response;
     }
