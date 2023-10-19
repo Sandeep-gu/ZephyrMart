@@ -43,7 +43,7 @@ function CreateProduct() {
         let formData = new FormData();
         formData.append('file',photo)
         console.log(formData)
-        const response =axios.post(`${process.env.REACT_APP_API}/api/v1/auth/uploadFile`,formData)
+        const response =axios.post(`http://localhost:4000/api/v1/auth/uploadFile`,formData)
         console.log(response)
         return response;
     }
@@ -54,12 +54,12 @@ function CreateProduct() {
         try{
             const imgres = await handleImageUpload()
             console.log(imgres);
-            const {data} = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/create-category`,
+            const {data} = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/create-product`,
             {
                 "name":name,
                 "price":price,
                 
-                "photo":`${process.env.REACT_APP_API}/api/v1/auth/files/${imgres.data.filename}`,
+                "photo":`http://localhost:4000/api/v1/auth/files/${imgres.data.filename}`,
                 "quantity":quantity,
                 "category":category,
                 "description":description,

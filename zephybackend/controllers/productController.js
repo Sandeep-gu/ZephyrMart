@@ -170,6 +170,7 @@ const deleteProductController = async(req,res)=>{
 const updateProductController = async(req,res)=>{
     try{
     const {name,price,category,description,shipping,slug,quantity,photo} = req.body;
+    console.log(name,price,category,description,shipping,slug,quantity,photo)
     //validation
     switch (true) {
         case !name:
@@ -182,7 +183,7 @@ const updateProductController = async(req,res)=>{
             return res.status(500).send({ error: 'category is required' });
         case !quantity:
             return res.status(500).send({ error: 'quantity is required' });
-        case !photo && photo.size > 100000:
+        case !photo:
             return res.status(500).send({ error: 'photo is required but less than 10mb' });
     }
     const products = await productModel.findByIdAndUpdate(req.params.pid,{...req.body,slug:slugify(name)})
@@ -202,6 +203,8 @@ const updateProductController = async(req,res)=>{
         })
 }
 }
+
+//filter product
 const filterProductController = async(req,res)=>{
     const {checked,radio} = req.body;
     console.log(checked + " " + radio)

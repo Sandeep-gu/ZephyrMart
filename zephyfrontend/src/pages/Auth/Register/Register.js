@@ -54,7 +54,7 @@ function Register() {
           address: userdetail.address,
           phone: userdetail.phone,
           answer: userdetail.answer,
-          photo: `${process.env.REACT_APP_API}/api/v1/auth/files/${imgres.data.filename}`,
+          photo: `http://localhost:4000/api/v1/auth/files/${imgres.data.filename}`,
         }
       );
       if (res.data.success) {
