@@ -42,6 +42,7 @@ function Register() {
     e.preventDefault();
     try {
       const imgres = await handleImageUpload();
+
       setLoading(true);
       console.log("userdetails", userdetail);
       const res = await axios.post(

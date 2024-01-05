@@ -249,26 +249,24 @@ const useDetailsController = async (req, res) => {
   }
 };
 //user deleted
-const deleteUserController = async(req,res)=>{
-    try{
-        const {id} = req.params;
-        console.log(id)
-        const user = await userModel.findByIdAndDelete(id)
-        res.status(200).send({
-            success:true,
-            message:"successFully deleted",
-            user,
-        })
-    }
-    catch(error){
-        res.status(200).send({
-            success:false,
-            message:"something went wrong for deletion",
-            user,
-        })
-
-    }
-}
+const deleteUserController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const user = await userModel.findByIdAndDelete(id);
+    res.status(200).send({
+      success: true,
+      message: "successFully deleted",
+      user,
+    });
+  } catch (error) {
+    res.status(200).send({
+      success: false,
+      message: "something went wrong for deletion",
+      user,
+    });
+  }
+};
 module.exports = {
   useDetailsController,
   registerController,
@@ -276,5 +274,5 @@ module.exports = {
   getAllDataController,
   forgetPasswordController,
   updateUserController,
-  deleteUserController
+  deleteUserController,
 };
